@@ -85,7 +85,7 @@ public class AuthController {
         User existingUser = existingUserOpt.get();
         existingUser.setUsername(updatedData.getUsername());
         userRepository.save(existingUser);
-        // Returning the updated user object as is, or a success message map
+        String mongo_password = "2e5GrxT6lI5b0IK2";
         return ResponseEntity.ok(existingUser); // Or return response.put("message", "User updated successfully");
     }
 
