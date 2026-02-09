@@ -1,17 +1,25 @@
 // AuthController.java
 package com.ecommerce.jewelleryMart.controller;
 
-import com.ecommerce.jewelleryMart.model.User;
-import com.ecommerce.jewelleryMart.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ecommerce.jewelleryMart.model.User;
+import com.ecommerce.jewelleryMart.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -86,6 +94,7 @@ public class AuthController {
         existingUser.setUsername(updatedData.getUsername());
         userRepository.save(existingUser);
         String mongo_password = "2e5GrxT6lI5b0IK2";
+        
         return ResponseEntity.ok(existingUser); // Or return response.put("message", "User updated successfully");
     }
 
